@@ -1,0 +1,50 @@
+{
+  "designLanguage": "Aure — a slim recording card in warm space-grey anodised aluminium (a matte neutral grey with a subtle warm/champagne cast), roughly credit-card footprint (86 x 54 mm, portrait orientation) and only 4 mm thin, so it slips into a wallet card slot. Gently rounded corners (~5 mm radius), soft chamfered edges. IDENTICAL device in every image — the details below are mandatory and consistent:\n\nFRONT FACE (portrait orientation, buttons on the right long edge):\n- The upper ~35% is a clean brushed-matte band with no texture and no controls.\n- Inside that upper band, top-left corner: a small crisply etched 'AURE' wordmark (four capital letters, ~8mm tall, understated etched aluminium — NEVER printed, colored, glowing, or elsewhere on the card).\n- The lower ~65% carries a finely machined concentric-ring texture zone: perfectly CIRCULAR concentric rings emanating from a single center point — NEVER elliptical, oval, spiral, warped or vinyl-record-like. The texture zone is a rounded rectangle inset with a subtle border, sitting centered horizontally, occupying most of the lower two-thirds.\n- The front face has NO buttons, NO port, NO holes, NO other markings.\n\nTOP LONG EDGE:\n- A single fine hairline warm-amber light-seam running the FULL length of the top edge only. It glows softly amber when recording. Never a full perimeter outline, never on the sides, never on the bottom — top edge only.\n\nRIGHT LONG EDGE (like a phone's side buttons):\n- A slim pill-shaped press-and-hold RECORD button, positioned in the upper third of the right edge, with a subtle hairline amber accent that lights when pressed.\n- A small round secondary button, positioned just below the record button, unmarked.\n- Buttons are the ONLY interruptions to the side edge.\n\nLEFT LONG EDGE: completely clean, no buttons, no ports.\n\nBOTTOM EDGE: a single minimal USB-C port cutout, centered, iPhone-style. Nothing else.\n\nREAR FACE: clean brushed-matte aluminium. In the exact center sits a flush polished circular MagSafe magnet ring — sized modestly (about 55% of the card's short dimension, i.e. ~30 mm ring outer diameter on a 54 mm card), with a small vibration-sensor contact pad just below it. The rear has NO port, NO cavity, NO recess, NO other markings anywhere else.\n\nOverall aesthetic: Teenage Engineering meets Apple Wallet. Restrained, premium, tactile. Warm space-grey anodised body with warm-amber accents (the top-edge seam and the record button ring). The exact same device with identical proportions and details in every image — consistency is critical.",
+  "images": [
+    {
+      "id": "card-master-reference",
+      "aspect": "landscape",
+      "prompt": "Definitive product reference sheet on a seamless soft-white studio background with even lighting and no shadows. FOUR labelled views of the SAME single device in a clean 2x2 grid layout with generous white space between them: TOP-LEFT view = the FRONT face, straight-on (portrait orientation), showing the clean brushed upper band with a small etched 'AURE' wordmark in the top-left corner and the machined circular concentric-ring texture zone filling the lower two-thirds; TOP-RIGHT view = the REAR face, straight-on (portrait orientation), showing the modest centered polished MagSafe magnet ring and a small vibration-sensor pad just below it — nothing else on the back; BOTTOM-LEFT view = the RIGHT LONG EDGE, seen edge-on, showing the slim pill-shaped record button in the upper third with its amber accent, and the small round secondary button just below it; BOTTOM-RIGHT view = the TOP LONG EDGE, seen edge-on, showing the thin hairline amber light-seam glowing softly along its full length and the card's ~4mm thinness. {DL} Ultra-clean, technical, catalog-style, razor-sharp focus, photorealistic 8k, single continuous image."
+    },
+    {
+      "id": "card-front-back",
+      "aspect": "landscape",
+      "prompt": "Ultra-premium studio product photograph on a seamless pure white background with soft even studio lighting and a subtle soft contact shadow. Show TWO views of the SAME single device side by side: on the LEFT the FRONT face, on the RIGHT the REAR face. {DL} On the FRONT view, clearly show the clean button-free front face with its machined concentric-ring texture zone, the slim pill-shaped record button and the small round button on the RIGHT SIDE EDGE, the thin amber light-seam glowing softly along the top edge, and the small etched AURE wordmark. On the REAR view, clearly show the flush polished circular MagSafe magnet ring at the centre and the small vibration-sensor pad — the rear face is otherwise completely clean and uninterrupted, with NO port cavity, slot or recess anywhere on the rear face. The USB-C port is only on the bottom edge and is not necessarily visible from this angle. Both cards stand upright, floating at a very slight three-quarter angle so the side-edge buttons are visible, evenly lit, razor-sharp focus, clean Apple-style e-commerce hero on white. Photorealistic, 8k, crisp product photography."
+    },
+    {
+      "id": "card-hero",
+      "aspect": "landscape",
+      "prompt": "Single hero product shot of {DL} One card only, floating at a slight three-quarter angle on a seamless soft-white studio background with a gentle contact shadow, the amber top-edge seam softly lit. Clean, minimal, premium Apple-style key visual, photorealistic 8k."
+    },
+    {
+      "id": "card-in-wallet",
+      "aspect": "landscape",
+      "prompt": "SINGLE lifestyle product photograph — one continuous composition, NOT a grid, NOT a collage, NOT multi-panel. On a light, airy neutral background: a person's hand slides {DL} into the front card slot of a minimal tan leather bifold cardholder that already holds two plain credit cards visible behind it, so the Aure card sits flush alongside the credit cards proving it is genuinely card-thin. Soft warm natural window light, shallow depth of field on the wallet and card, bright, clean, premium editorial photography. One frame only."
+    },
+    {
+      "id": "card-on-phone",
+      "aspect": "portrait",
+      "prompt": "Product photo on a soft light-grey gradient background. A person's hand is holding a modern smartphone from the LEFT SIDE ONLY — fingers wrapped around the LEFT edge of the phone, palm behind the phone, THUMB AND FINGERS ENTIRELY OFF THE BACK — leaving the phone's entire rear surface completely unobstructed and visible to the camera. The rear of the phone faces us (triple camera bump in the top-left corner, screen turned away). {DL} is magnetically snapped flat, perfectly centered horizontally, and positioned in the upper-middle third of the phone's back (just below the camera bump). The card sits completely flush with zero gap or tilt, its ENTIRE FACE fully visible with the AURE wordmark, machined concentric ring texture, right-edge side buttons and top-edge amber seam all clearly seen. NO fingers, thumbs or hand anywhere over the card. Held near the ear as if mid phone call. Bright premium tech-launch key visual, photorealistic, single frame."
+    },
+    {
+      "id": "card-side-button",
+      "aspect": "square",
+      "prompt": "Extreme macro three-quarter shot of the RIGHT SIDE EDGE of {DL} a fingertip pressing the slim pill-shaped record button with its subtle amber accent, the small round secondary button just below it, and the amber top-edge seam glowing above. Light studio background, razor-thin depth of field, tactile industrial-design photography."
+    },
+    {
+      "id": "card-thinness",
+      "aspect": "landscape",
+      "prompt": "Edge-on macro product shot of {DL} photographed from the side to emphasise how thin it is (~4 mm, like a stack of a few credit cards), the USB-C port visible on the bottom edge and the amber top-edge seam glowing. Seamless white background, soft studio light, crisp minimal product photography."
+    },
+    {
+      "id": "card-healthcare",
+      "aspect": "portrait",
+      "prompt": "Editorial lifestyle photograph in a bright modern hospital ward: a young Indian doctor in a white coat stands at a patient's bedside speaking mid-sentence, her hands gently gesturing or holding a pen — HANDS EMPTY of any device. Exactly ONE {DL} appears in the whole image: clipped UPRIGHT at her coat's chest pocket, front face toward the camera in the exact master layout — etched AURE wordmark in the clean top band, circular concentric-ring texture on the lower two-thirds, hairline amber seam glowing along the top edge. No phone, no second device anywhere. Patient and ward softly blurred behind, warm morning window light, documentary healthcare photography, ONE single frame."
+    },
+    {
+      "id": "card-construction",
+      "aspect": "portrait",
+      "prompt": "Editorial lifestyle photograph on an active construction site at golden hour: an Indian site engineer in a yellow hard hat and hi-vis vest holds {DL} up near his mouth like a voice recorder while speaking — the card's FRONT FACE angled clearly toward the camera so we see the master layout: etched AURE wordmark in the clean top band, circular concentric-ring machined texture on the lower two-thirds, and the hairline amber seam glowing along the top edge. Steel rebar and a crane softly blurred behind. Documentary construction photography, ONE single frame, not a collage."
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aure for Healthcare — The ward speaks. The record writes itself.</title>
+  <meta name="description" content="Give every clinician an Aure card. Ward rounds, handovers and nursing notes combine into progress notes, discharge summaries and patient journeys — automatically." />
+  <meta property="og:title" content="Aure for Healthcare" />
+  <meta property="og:image" content="/renders/card-healthcare.png" />
+  <meta name="theme-color" content="#f4f1ea" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="vpage">
+  <canvas id="gl"></canvas>
+  <div id="glow"></div>
+  <div class="grain"></div>
+
+  <header class="nav">
+    <a class="nav-logo" href="/">AURE</a>
+    <div class="nav-progress"><i id="scroll-fill"></i></div>
+    <div class="nav-side">
+      <a class="nav-link" href="/construction.html">Construction</a>
+      <a class="nav-cta magnetic" href="/#pricing">Reserve</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="panel v-hero">
+      <div class="v-hero-copy">
+        <p class="kicker reveal">Aure for Healthcare</p>
+        <h1 class="serif reveal">The ward speaks.<br/><em>The record writes itself.</em></h1>
+        <p class="body reveal">A card on every coat. Rounds, handovers and nursing notes are captured
+        at the bedside, combined up the hierarchy, and returned as finished documentation —
+        before the next shift begins.</p>
+        <div class="cta-row left reveal">
+          <a class="btn primary magnetic" href="/#pricing">Pilot Aure in your ward</a>
+        </div>
+      </div>
+      <div class="media skewable">
+        <figure class="frame portrait reveal">
+          <img src="/renders/card-healthcare.png" alt="A doctor dictating at the bedside with the Aure card on her coat" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="strip">
+      <h2 class="outline">From bedside to discharge.</h2>
+    </section>
+
+    <!-- A DAY IN THE WARD -->
+    <section class="panel v-timeline">
+      <p class="kicker reveal">One shift with Aure</p>
+      <h2 class="serif reveal">Documentation happens<br/><em>while care happens.</em></h2>
+      <div class="tl">
+        <div class="tl-item reveal"><em>06:00</em><strong>Morning rounds</strong><span>The consultant speaks at each bed. Progress notes draft themselves per patient.</span></div>
+        <div class="tl-item reveal"><em>09:30</em><strong>Nursing vitals</strong><span>Nurses log observations by voice — hands never leave the patient.</span></div>
+        <div class="tl-item reveal"><em>14:00</em><strong>Shift handover</strong><span>The outgoing nurse speaks once; the incoming shift reads a structured summary.</span></div>
+        <div class="tl-item reveal"><em>20:00</em><strong>Night notes</strong><span>Resident updates flow into each patient's timeline as they're spoken.</span></div>
+        <div class="tl-item reveal"><em>06:00 +1</em><strong>Summaries ready</strong><span>Yesterday's voices are today's discharge summaries — drafted, not dictated twice.</span></div>
+      </div>
+    </section>
+
+    <!-- ASSEMBLY — the centerpiece -->
+    <section class="panel v-assembly">
+      <p class="kicker reveal">Watch it happen</p>
+      <h2 class="serif reveal">A discharge summary,<br/><em>writing itself.</em></h2>
+      <div class="assembly reveal">
+        <div class="chips" aria-hidden="true"></div>
+        <div class="doc">
+          <div class="doc-head">
+            <span class="doc-title">Discharge Summary — Bed 12</span>
+            <span class="doc-status"></span>
+          </div>
+          <div class="doc-lines"></div>
+          <div class="doc-stamp">✓ Drafted for review</div>
+        </div>
+      </div>
+      <p class="demo-caption reveal">Every chip is a real voice note from the floor. Nothing is typed.</p>
+    </section>
+
+    <!-- ROLES -->
+    <section class="panel v-roles">
+      <p class="kicker reveal">Every level sees what it needs</p>
+      <h2 class="serif reveal">One fleet.<br/><em>Four vantage points.</em></h2>
+      <div class="roles-grid">
+        <div class="role reveal"><em>Nurse</em><strong>Hands stay on care</strong><span>Vitals, observations and handovers by voice. Task lists arrive structured each shift.</span></div>
+        <div class="role reveal"><em>Resident</em><strong>Notes draft themselves</strong><span>Speak at the bedside; SOAP notes appear in the patient timeline for sign-off.</span></div>
+        <div class="role reveal"><em>Consultant</em><strong>The ward at a glance</strong><span>Combined summaries per patient, flags routed to the right specialist automatically.</span></div>
+        <div class="role reveal"><em>HOD</em><strong>The department, measured</strong><span>Length-of-stay trends, documentation gaps, patient journeys — from voices, not forms.</span></div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section class="panel v-docs">
+      <p class="kicker reveal">What Aure writes</p>
+      <h2 class="serif reveal">Documents your ward<br/><em>already uses.</em></h2>
+      <div class="docs-gallery">
+        <div class="mini-doc reveal"><span class="md-tag">SOAP</span><strong>Progress note</strong><div class="md-lines"><i style="width:88%"></i><i style="width:72%"></i><i style="width:81%"></i><i style="width:56%"></i></div></div>
+        <div class="mini-doc reveal"><span class="md-tag">Handover</span><strong>Nursing summary</strong><div class="md-lines"><i style="width:78%"></i><i style="width:84%"></i><i style="width:63%"></i><i style="width:70%"></i></div></div>
+        <div class="mini-doc reveal"><span class="md-tag">Discharge</span><strong>Discharge summary</strong><div class="md-lines"><i style="width:90%"></i><i style="width:75%"></i><i style="width:82%"></i><i style="width:68%"></i></div></div>
+        <div class="mini-doc reveal"><span class="md-tag">Journey</span><strong>Patient timeline</strong><div class="md-lines"><i style="width:66%"></i><i style="width:85%"></i><i style="width:74%"></i><i style="width:60%"></i></div></div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="panel v-trust">
+      <p class="kicker reveal">Built for clinical reality</p>
+      <div class="trust-grid">
+        <div class="trust reveal"><strong>Consent, audible</strong><span>A recording tone and visible amber seam — everyone in the room knows.</span></div>
+        <div class="trust reveal"><strong>Audit-ready</strong><span>Every capture logged: who, where, when. Tamper-evident by design.</span></div>
+        <div class="trust reveal"><strong>Works offline</strong><span>No ward Wi-Fi? Notes buffer on the card and sync when back in range.</span></div>
+        <div class="trust reveal"><strong>Policy-gated</strong><span>Admins decide what can be recorded, by whom, and where it flows.</span></div>
+      </div>
+    </section>
+
+    <!-- NUMBERS -->
+    <section class="panel numbers">
+      <p class="kicker reveal">The shift, measured</p>
+      <div class="numbers-grid">
+        <div class="num reveal"><strong><span data-count="14">0</span><i>notes</i></strong><span>combined per patient stay</span></div>
+        <div class="num reveal"><strong><span data-count="40">0</span><i>min</i></strong><span>returned per clinician, per day</span></div>
+        <div class="num reveal"><strong><span data-count="1">0</span><i>am</i></strong><span>summaries ready before rounds</span></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="panel cta">
+      <h2 class="serif giant reveal">Give your ward<br/><em>its voice back.</em></h2>
+      <div class="cta-row reveal">
+        <a class="btn primary magnetic" href="/#pricing">Reserve at ₹3,999</a>
+        <a class="btn ghost magnetic" href="/construction.html">See construction →</a>
+      </div>
+      <p class="fine reveal">Pilot programs open for early 2027</p>
+      <div class="footer-line">
+        <a class="mark" href="/">AURE</a><span>© 2026 · A card-thin recorder</span>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/json" id="page-config">
+  {
+    "compiling": "Compiling from the floor…",
+    "done": "Complete — 8 voices, one document",
+    "chips": [
+      ["06:10", "Rounds — Dr. Mehta"],
+      ["08:40", "Vitals — Nurse 6A"],
+      ["11:15", "Cardiology review"],
+      ["14:00", "Handover — Nurse 6B"],
+      ["17:30", "Physio session note"],
+      ["20:45", "Night entry — Resident"],
+      ["23:10", "Vitals — Night nurse"],
+      ["05:50", "Pre-discharge check"]
+    ]
+  }
+  </script>
+  <script type="module" src="/src/vertical.js"></script>
+</body>
+</html>

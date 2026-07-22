@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aure for Construction — The site talks all day. Now it files reports.</title>
+  <meta name="description" content="Give every foreman and engineer an Aure card. Toolbox talks, site walks and delivery logs combine into daily site reports and project records — automatically." />
+  <meta property="og:title" content="Aure for Construction" />
+  <meta property="og:image" content="/renders/card-construction.png" />
+  <meta name="theme-color" content="#f4f1ea" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="vpage">
+  <canvas id="gl"></canvas>
+  <div id="glow"></div>
+  <div class="grain"></div>
+
+  <header class="nav">
+    <a class="nav-logo" href="/">AURE</a>
+    <div class="nav-progress"><i id="scroll-fill"></i></div>
+    <div class="nav-side">
+      <a class="nav-link" href="/healthcare.html">Healthcare</a>
+      <a class="nav-cta magnetic" href="/#pricing">Reserve</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="panel v-hero">
+      <div class="v-hero-copy">
+        <p class="kicker reveal">Aure for Construction</p>
+        <h1 class="serif reveal">The site talks all day.<br/><em>Now it files reports.</em></h1>
+        <p class="body reveal">A card in every pocket. Toolbox talks, site walks and delivery logs
+        are captured where they happen, combined across blocks, and filed as the day's
+        report — before the drive home.</p>
+        <div class="cta-row left reveal">
+          <a class="btn primary magnetic" href="/#pricing">Pilot Aure on your site</a>
+        </div>
+      </div>
+      <div class="media skewable">
+        <figure class="frame portrait reveal">
+          <img src="/renders/card-construction.png" alt="A site engineer logging a voice note with the Aure card" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="strip">
+      <h2 class="outline">From site walk to site report.</h2>
+    </section>
+
+    <!-- A DAY ON SITE -->
+    <section class="panel v-timeline">
+      <p class="kicker reveal">One day with Aure</p>
+      <h2 class="serif reveal">Reporting happens<br/><em>while building happens.</em></h2>
+      <div class="tl">
+        <div class="tl-item reveal"><em>07:00</em><strong>Toolbox talk</strong><span>The morning briefing records itself — attendance, tasks, safety points.</span></div>
+        <div class="tl-item reveal"><em>10:30</em><strong>Site walk</strong><span>The engineer speaks what he sees; observations file themselves by block.</span></div>
+        <div class="tl-item reveal"><em>13:00</em><strong>Delivery gate</strong><span>Steel arrives; the store logs it by voice. Quantities hit the record instantly.</span></div>
+        <div class="tl-item reveal"><em>17:00</em><strong>End-of-day wrap</strong><span>Each foreman speaks two minutes. Progress rolls up per block.</span></div>
+        <div class="tl-item reveal"><em>18:00</em><strong>Report filed</strong><span>The daily site report compiles itself and reaches the project head.</span></div>
+      </div>
+    </section>
+
+    <!-- ASSEMBLY — the centerpiece -->
+    <section class="panel v-assembly">
+      <p class="kicker reveal">Watch it happen</p>
+      <h2 class="serif reveal">A site report,<br/><em>filing itself.</em></h2>
+      <div class="assembly reveal">
+        <div class="chips" aria-hidden="true"></div>
+        <div class="doc">
+          <div class="doc-head">
+            <span class="doc-title">Daily Site Report — Site Alpha</span>
+            <span class="doc-status"></span>
+          </div>
+          <div class="doc-lines"></div>
+          <div class="doc-stamp">✓ Filed at 18:00</div>
+        </div>
+      </div>
+      <p class="demo-caption reveal">Every chip is a real voice log from the field. Nothing is typed.</p>
+    </section>
+
+    <!-- ROLES -->
+    <section class="panel v-roles">
+      <p class="kicker reveal">Every level sees what it needs</p>
+      <h2 class="serif reveal">One fleet.<br/><em>Four vantage points.</em></h2>
+      <div class="roles-grid">
+        <div class="role reveal"><em>Foreman</em><strong>Log without stopping</strong><span>Progress, manpower and blockers by voice — gloves on, work moving.</span></div>
+        <div class="role reveal"><em>Site Engineer</em><strong>Observations that file themselves</strong><span>Speak on the walk; issues route to the right lead with photos of the day.</span></div>
+        <div class="role reveal"><em>Project Head</em><strong>Every block, one report</strong><span>Daily reports compile automatically. Delays surface before they compound.</span></div>
+        <div class="role reveal"><em>Client / PMC</em><strong>The project, evidenced</strong><span>A weekly review built from the field's own words — dated, attributed, auditable.</span></div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section class="panel v-docs">
+      <p class="kicker reveal">What Aure files</p>
+      <h2 class="serif reveal">Paperwork the site<br/><em>never has to write.</em></h2>
+      <div class="docs-gallery">
+        <div class="mini-doc reveal"><span class="md-tag">Daily</span><strong>Site report</strong><div class="md-lines"><i style="width:88%"></i><i style="width:72%"></i><i style="width:81%"></i><i style="width:56%"></i></div></div>
+        <div class="mini-doc reveal"><span class="md-tag">Safety</span><strong>Observation log</strong><div class="md-lines"><i style="width:78%"></i><i style="width:84%"></i><i style="width:63%"></i><i style="width:70%"></i></div></div>
+        <div class="mini-doc reveal"><span class="md-tag">Materials</span><strong>Delivery register</strong><div class="md-lines"><i style="width:90%"></i><i style="width:75%"></i><i style="width:82%"></i><i style="width:68%"></i></div></div>
+        <div class="mini-doc reveal"><span class="md-tag">Escalation</span><strong>Delay record</strong><div class="md-lines"><i style="width:66%"></i><i style="width:85%"></i><i style="width:74%"></i><i style="width:60%"></i></div></div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="panel v-trust">
+      <p class="kicker reveal">Built for site reality</p>
+      <div class="trust-grid">
+        <div class="trust reveal"><strong>Works offline</strong><span>No signal in the basement? Logs buffer on the card and sync at the gate.</span></div>
+        <div class="trust reveal"><strong>Pocket-proof</strong><span>Anodised aluminium, no screen to crack, fits behind the site ID card.</span></div>
+        <div class="trust reveal"><strong>Hierarchy-aware</strong><span>Crews see tasks. Leads see blocks. The head sees everything.</span></div>
+        <div class="trust reveal"><strong>Evidence-grade</strong><span>Every log is timestamped and attributed — the record stands in disputes.</span></div>
+      </div>
+    </section>
+
+    <!-- NUMBERS -->
+    <section class="panel numbers">
+      <p class="kicker reveal">The day, measured</p>
+      <div class="numbers-grid">
+        <div class="num reveal"><strong><span data-count="32">0</span><i>logs</i></strong><span>merged into one report daily</span></div>
+        <div class="num reveal"><strong><span data-count="18">0</span><i>:00</i></strong><span>report filed, every single day</span></div>
+        <div class="num reveal"><strong><span data-count="3">0</span><i>blocks</i></strong><span>one view for the project head</span></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="panel cta">
+      <h2 class="serif giant reveal">Build the record<br/><em>while you build.</em></h2>
+      <div class="cta-row reveal">
+        <a class="btn primary magnetic" href="/#pricing">Reserve at ₹3,999</a>
+        <a class="btn ghost magnetic" href="/healthcare.html">See healthcare →</a>
+      </div>
+      <p class="fine reveal">Pilot programs open for early 2027</p>
+      <div class="footer-line">
+        <a class="mark" href="/">AURE</a><span>© 2026 · A card-thin recorder</span>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/json" id="page-config">
+  {
+    "compiling": "Compiling from the field…",
+    "done": "Complete — 8 logs, one report",
+    "chips": [
+      ["07:05", "Toolbox talk — Block A"],
+      ["09:20", "Rebar check — Engineer"],
+      ["10:45", "Manpower count — Foreman A1"],
+      ["13:10", "Steel delivery — Stores"],
+      ["14:30", "Safety observation — S1"],
+      ["15:50", "Concrete pour — Block B"],
+      ["17:00", "EOD wrap — Foreman A2"],
+      ["17:25", "Blocker — pump breakdown"]
+    ]
+  }
+  </script>
+  <script type="module" src="/src/vertical.js"></script>
+</body>
+</html>

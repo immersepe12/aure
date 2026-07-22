@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aure — Product Image Review</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #08080a; color: #e8e6e1; font-family: 'Inter', -apple-system, sans-serif; padding: 48px 5vw 96px; }
+  h1 { font-weight: 200; font-size: 34px; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .spec { color: #8a8781; font-size: 13.5px; line-height: 1.7; max-width: 760px; margin-bottom: 10px; }
+  .spec b { color: #f5a15a; font-weight: 500; }
+  .hint { color: #55524d; font-size: 12px; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 26px; }
+  figure { background: #0d0d10; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; overflow: hidden; }
+  img { width: 100%; height: auto; display: block; background: #000; }
+  figcaption { padding: 14px 16px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .name { font-size: 14px; font-weight: 500; }
+  .use { color: #8a8781; font-size: 12px; text-align: right; }
+</style>
+</head>
+<body>
+  <h1>AURE · Product image set</h1>
+  <p class="spec">Locked design: 38&thinsp;mm × 9&thinsp;mm graphite pod (AirTag proportions) · machined concentric face ·
+  <b>record button flush at face center with hairline amber ring</b> · amber LED arc on upper face edge ·
+  USB-C recessed in side edge · MagSafe magnet ring on rear.</p>
+  <p class="hint">Cache-busted live view — regenerated files appear on refresh.</p>
+  <div class="grid" id="grid"></div>
+  <script>
+    const images = [
+      ['hero-pod-dark', 'Hero / landing key visual'],
+      ['pod-macro-face', 'Face detail — button + rings'],
+      ['pod-rear-magsafe', 'Rear — MagSafe ring + VCS'],
+      ['usbc-button-macro', 'Button press + USB-C edge'],
+      ['wrist-macro', 'Wrist band — product macro'],
+      ['wrist-dock', 'Wrist band — lifestyle'],
+      ['pendant-dock', 'Pendant — lifestyle'],
+      ['magsafe-phone-call', 'MagSafe call — key visual'],
+      ['desk-mount', 'Desk mount — lifestyle'],
+      ['docks-family', 'Ecosystem flat lay'],
+      ['exploded-view', 'Engineering exploded view'],
+      ['clinical-scene', 'B2B clinical — editorial'],
+      ['packaging', 'Packaging / unboxing'],
+      ['site-bg-nebula', 'Website backdrop texture'],
+    ]
+    const bust = Date.now()
+    document.getElementById('grid').innerHTML = images.map(([id, use]) =>
+      `<figure><img src="/renders/${id}.png?v=${bust}" alt="${id}" loading="lazy" />
+       <figcaption><span class="name">${id}</span><span class="use">${use}</span></figcaption></figure>`
+    ).join('')
+  </script>
+</body>
+</html>

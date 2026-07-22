@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aure — Every voice worth remembering.</title>
+  <meta name="description" content="Aure is a card-thin recorder that lives in your wallet or on the back of your phone. Press to capture, MagSafe to record calls, get every word structured — automatically." />
+
+  <meta property="og:title" content="Aure — Every voice worth remembering." />
+  <meta property="og:description" content="Card-thin recorder. Wallet-slim. MagSafe on. Every call, every idea — structured automatically." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/renders/card-hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f4f1ea" />
+
+  <link rel="preload" as="image" href="/renders/card-hero.png" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="loading">
+  <div id="loader">
+    <div class="loader-mark">AURE</div>
+    <div class="loader-count"><span id="loader-pct">0</span></div>
+    <div class="loader-bar"><i id="loader-fill"></i></div>
+  </div>
+
+  <canvas id="gl"></canvas>
+  <div id="glow"></div>
+  <div class="grain"></div>
+
+  <header class="nav">
+    <div class="nav-logo">AURE</div>
+    <div class="nav-progress"><i id="scroll-fill"></i></div>
+    <div class="nav-cta magnetic">Reserve</div>
+  </header>
+
+  <nav class="rail" aria-hidden="true"></nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="panel hero">
+      <p class="hero-eyebrow reveal">Introducing</p>
+      <h1 class="hero-title" aria-label="AURE">
+        <span>A</span><span>U</span><span>R</span><span>E</span>
+      </h1>
+      <p class="hero-sub reveal">A card-thin recorder that lives in your wallet.<br/>
+      <em>Every voice worth remembering.</em></p>
+      <canvas class="wave" width="720" height="88" aria-hidden="true"></canvas>
+      <figure class="hero-media">
+        <img src="/renders/card-hero.png" alt="The Aure card floating — machined face, amber seam" />
+      </figure>
+      <div class="scroll-hint reveal">Scroll<span class="scroll-line"></span></div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="strip">
+      <h2 class="outline"><span class="ghost">Not a gadget. A card.</span><span class="fill" aria-hidden="true">Not a gadget. A card.</span></h2>
+    </section>
+
+    <!-- WALLET -->
+    <section class="panel stage">
+      <div class="media skewable">
+        <figure class="frame landscape">
+          <img src="/renders/card-in-wallet.png" alt="Aure sliding into a leather cardholder beside credit cards" />
+        </figure>
+      </div>
+      <div class="copy">
+        <p class="kicker reveal">Card-thin · Wallet-ready</p>
+        <h3 class="reveal">Slips in beside<br/>your other cards.</h3>
+        <p class="body reveal">Four millimetres of anodised aluminium — the thickness of two credit
+        cards. Aure lives in the slot you already open every day. Nothing new to carry,
+        nothing to forget.</p>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="strip">
+      <h2 class="outline flip"><span class="ghost">Snap on. Take the call.</span><span class="fill" aria-hidden="true">Snap on. Take the call.</span></h2>
+    </section>
+
+    <!-- PHONE -->
+    <section class="panel stage reverse">
+      <div class="media skewable">
+        <figure class="frame portrait">
+          <img src="/renders/card-on-phone.png" alt="Aure MagSafe'd to a phone during a call, amber seam lit" />
+        </figure>
+      </div>
+      <div class="copy">
+        <p class="kicker reveal">MagSafe call capture</p>
+        <h3 class="reveal">It hears through<br/>the phone itself.</h3>
+        <p class="body reveal">MagSafe it to your phone's back and take the call the way you always
+        do — no speakerphone, no app in the audio path. A vibration sensor picks the caller
+        up through the chassis. Both sides, one clean recording.</p>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="strip">
+      <h2 class="outline"><span class="ghost">One button. Held for a thought.</span><span class="fill" aria-hidden="true">One button. Held for a thought.</span></h2>
+    </section>
+
+    <!-- BUTTON -->
+    <section class="panel stage">
+      <div class="media skewable">
+        <figure class="frame square">
+          <img src="/renders/card-side-button.png" alt="A fingertip pressing Aure's pill-shaped record button" />
+        </figure>
+      </div>
+      <div class="copy">
+        <p class="kicker reveal">The whole interface</p>
+        <h3 class="reveal">Press to record.<br/>Release to structure.</h3>
+        <p class="body reveal">One tactile pill on the edge. Press — Aure listens. Release — the
+        recording is transcribed, diarized by speaker, and distilled into notes and action
+        items while you keep moving.</p>
+      </div>
+    </section>
+
+    <!-- DESIGN -->
+    <section class="panel design">
+      <div class="design-head">
+        <p class="kicker reveal">The design</p>
+        <h2 class="serif reveal">Every surface, considered.</h2>
+      </div>
+      <div class="media skewable wide">
+        <figure class="frame ultrawide">
+          <img src="/renders/card-master-reference.png" alt="Aure technical reference — face, rear, edges" />
+        </figure>
+      </div>
+      <div class="design-legend">
+        <div class="reveal"><strong>Face</strong><span>Machined concentric rings from a single point.</span></div>
+        <div class="reveal"><strong>Edge</strong><span>Pill record button. One small secondary control.</span></div>
+        <div class="reveal"><strong>Rear</strong><span>MagSafe ring and the vibration sensor beneath.</span></div>
+        <div class="reveal"><strong>Seam</strong><span>A hairline of amber that glows while listening.</span></div>
+      </div>
+    </section>
+
+    <!-- TEAMS — the B2B heart -->
+    <section class="panel teams" id="teams">
+      <div class="teams-head">
+        <p class="kicker reveal">Aure for teams</p>
+        <h2 class="serif reveal">Every voice in your org.<br/><em>One intelligence.</em></h2>
+        <p class="body center-body reveal">Give every person a card. Their notes flow up the hierarchy,
+        combine, and come back down as insight — automatically.</p>
+        <div class="industry-toggle reveal" role="tablist">
+          <button class="ind active" data-ind="healthcare" role="tab">Healthcare</button>
+          <button class="ind" data-ind="construction" role="tab">Construction</button>
+        </div>
+      </div>
+
+      <div class="viz-wrap reveal">
+        <svg class="org-viz" viewBox="0 0 900 560" aria-hidden="true"></svg>
+        <div class="insight-ticker">
+          <span class="tick-dot"></span>
+          <span class="tick-text">Discharge summary drafted — Bed 12</span>
+        </div>
+      </div>
+
+      <div class="teams-cards">
+        <div class="tcard reveal"><strong>Notes roll up</strong><span data-copy="rollup">Every ward round, every handover — captured at the bedside and combined upward.</span></div>
+        <div class="tcard reveal"><strong>Insights route down</strong><span data-copy="route">Each level sees what it needs: summaries for HODs, tasks for the floor.</span></div>
+        <div class="tcard reveal"><strong>Journeys emerge</strong><span data-copy="journey">Weeks of notes become one patient story — progress, decisions, outcomes.</span></div>
+      </div>
+      <div class="dive-links reveal">
+        <a class="dive" href="/healthcare.html">Dive into Healthcare →</a>
+        <a class="dive" href="/construction.html">Dive into Construction →</a>
+      </div>
+    </section>
+
+    <!-- TRANSCRIPT DEMO — the magic trick -->
+    <section class="panel demo">
+      <div class="demo-head">
+        <p class="kicker reveal">From voice to record</p>
+        <h2 class="serif reveal">Say it once.<br/><em>It writes itself.</em></h2>
+      </div>
+      <div class="demo-stage reveal">
+        <div class="demo-card transcript-card">
+          <div class="demo-card-head">
+            <span class="rec-live"><i></i>REC</span>
+            <span>Dr.&nbsp;Mehta · Ward 6</span>
+            <span class="demo-time">04:32 PM</span>
+          </div>
+          <p class="transcript-text"><span class="typed"></span><span class="caret"></span></p>
+        </div>
+        <div class="demo-arrow" aria-hidden="true">→</div>
+        <div class="demo-card note-card">
+          <div class="demo-card-head"><span class="note-title">Progress note · drafted</span></div>
+          <div class="note-field" data-field="s"><em>Subjective</em><span>Chest tightness since Tuesday, worse on exertion.</span></div>
+          <div class="note-field" data-field="o"><em>Objective</em><span>BP 138/88 · SpO₂ 97% · afebrile.</span></div>
+          <div class="note-field" data-field="a"><em>Assessment</em><span>Likely angina — cardiology review advised.</span></div>
+          <div class="note-field" data-field="p"><em>Plan</em><span>ECG today · troponin panel · review 6 AM.</span></div>
+          <div class="note-summary"><span>＋ 3 nurse notes overnight</span><strong>Discharge summary drafted ✓</strong></div>
+        </div>
+      </div>
+      <p class="demo-caption reveal">Same magic on a construction site — daily voice logs become the site report.</p>
+    </section>
+
+    <!-- PRICING -->
+    <section class="panel pricing" id="pricing">
+      <p class="kicker reveal">Launch price</p>
+      <h2 class="price-big reveal"><i>₹</i>3,999</h2>
+      <p class="price-context reveal">Smart recorders today sell for <s>₹12,000–₹15,000</s>.<br/>
+      Aure launches at less than a third.</p>
+      <div class="cta-row reveal">
+        <div class="btn primary magnetic">Reserve at ₹3,999</div>
+      </div>
+      <p class="fine reveal">First batch · early 2027 · price at launch</p>
+    </section>
+
+    <!-- NUMBERS -->
+    <section class="panel numbers">
+      <p class="kicker reveal">By the numbers</p>
+      <div class="numbers-grid">
+        <div class="num reveal"><strong><span data-count="4">0</span><i>mm</i></strong><span>thin — two credit cards</span></div>
+        <div class="num reveal"><strong><span data-count="18">0</span><i>h</i></strong><span>of capture on a charge</span></div>
+        <div class="num reveal"><strong><span data-count="50">0</span><i>+</i></strong><span>languages transcribed</span></div>
+        <div class="num reveal"><strong><span data-count="4">0</span><i>d</i></strong><span>of standby between charges</span></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="panel cta">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Record&nbsp;·&nbsp;Transcribe&nbsp;·&nbsp;Structure&nbsp;·&nbsp;Remember&nbsp;·&nbsp;</span>
+          <span>Record&nbsp;·&nbsp;Transcribe&nbsp;·&nbsp;Structure&nbsp;·&nbsp;Remember&nbsp;·&nbsp;</span>
+        </div>
+      </div>
+      <h2 class="serif giant reveal">Every word,<br/><em>accounted for.</em></h2>
+      <div class="cta-row reveal">
+        <div class="btn primary magnetic">Reserve Aure</div>
+        <div class="btn ghost magnetic">For teams</div>
+      </div>
+      <p class="fine reveal">Ships early 2027 · India-first, world next</p>
+      <div class="footer-line">
+        <span class="mark">AURE</span><span>© 2026 · A card-thin recorder</span>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
