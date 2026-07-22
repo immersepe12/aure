@@ -183,45 +183,22 @@ const numIo = new IntersectionObserver(es => {
 }, { threshold: 0.6 })
 document.querySelectorAll('[data-count]').forEach(el => numIo.observe(el))
 
-// playback timeline: scroll is the scrubber, the page is a recording
+// chapter rail
 const railEl = document.querySelector('.rail')
-railEl.innerHTML = '<div class="rail-track"><div class="rail-head"></div></div><div class="rail-time"><b>00:00</b>&thinsp;/&thinsp;05:32</div>'
-const railTrack = railEl.querySelector('.rail-track')
-const railHead = railEl.querySelector('.rail-head')
-const railTime = railEl.querySelector('.rail-time b')
-const RAIL_TOTAL = 332 // the "recording length" of the page, in seconds
-function buildRailTicks() {
-  railTrack.querySelectorAll('.rail-tick').forEach(t => t.remove())
-  const max = Math.max(1, document.documentElement.scrollHeight - innerHeight)
-  document.querySelectorAll('main > section').forEach(sec => {
-    const frac = Math.min(1, sec.offsetTop / max)
-    const tick = document.createElement('div')
-    tick.className = 'rail-tick'
-    tick.style.top = (frac * 100) + '%'
-    tick.addEventListener('click', () => lenis.scrollTo(sec.offsetTop, { duration: 1.4 }))
-    railTrack.appendChild(tick)
+const railSections = [...document.querySelectorAll('.hero, .stage, .design, .numbers, .cta')]
+const dots = railSections.map(() => {
+  const d = document.createElement('i')
+  railEl.appendChild(d)
+  return d
+})
+const railIo = new IntersectionObserver(es => {
+  es.forEach(en => {
+    if (!en.isIntersecting) return
+    const i = railSections.indexOf(en.target)
+    dots.forEach((d, j) => d.classList.toggle('active', j === i))
   })
-}
-buildRailTicks()
-addEventListener('load', buildRailTicks)
-addEventListener('resize', buildRailTicks)
-
-// headings transcribe themselves into view
-document.querySelectorAll('.serif.reveal, h3.reveal, .hero-sub.reveal').forEach(el => el.classList.add('transcribe'))
-
-// custom cursor — a quiet ring that becomes REC over media
-const cur = document.getElementById('cur')
-const curdot = document.getElementById('curdot')
-let curX = innerWidth / 2, curY = innerHeight / 2
-const hoverables = 'a, button, .btn, .nav-cta, .ind, .dive, .rail-tick'
-document.addEventListener('pointerover', e => {
-  if (e.target.closest(hoverables)) cur.classList.add('hov')
-  if (e.target.closest('.frame')) cur.classList.add('frame-hov')
-})
-document.addEventListener('pointerout', e => {
-  if (e.target.closest(hoverables)) cur.classList.remove('hov')
-  if (e.target.closest('.frame')) cur.classList.remove('frame-hov')
-})
+}, { threshold: 0.4 })
+railSections.forEach(s => railIo.observe(s))
 
 // hero waveform — idles like a quiet room, excites under the cursor
 const waveCanvas = document.querySelector('.wave')
@@ -456,118 +433,6 @@ const demoIo = new IntersectionObserver(es => {
 }, { threshold: 0.25 })
 demoIo.observe(document.querySelector('.demo'))
 
-/* ------------------ hold-to-speak: the site actually listens ----------------- */
-const SR = window.SpeechRecognition || window.webkitSpeechRecognition
-const tryit = document.querySelector('.tryit')
-let liveMode = false, recog = null, micStream = null, analyser = null, meterData = null
-const meterBars = [...document.querySelectorAll('.tryit-meter i')]
-
-if (SR && tryit) {
-  tryit.hidden = false
-  const btn = tryit.querySelector('.tryit-btn')
-  const label = tryit.querySelector('.tryit-label')
-  const noteTitle = document.querySelector('.note-title')
-  const origTitle = noteTitle.textContent
-  const origFields = noteFields.map(f => ({
-    em: f.querySelector('em').textContent,
-    span: f.querySelector('span').textContent,
-  }))
-  const origSummary = noteSummary.innerHTML
-  let finalText = '', restoreTimer = null
-
-  function setField(i, em, span, on) {
-    noteFields[i].querySelector('em').textContent = em
-    noteFields[i].querySelector('span').textContent = span
-    noteFields[i].classList.toggle('on', on)
-  }
-  function restoreScripted() {
-    noteTitle.textContent = origTitle
-    origFields.forEach((o, i) => setField(i, o.em, o.span, false))
-    noteSummary.innerHTML = origSummary
-    noteSummary.classList.remove('on')
-    typedEl.textContent = ''
-    charIdx = 0
-    if (demoVisible && !demoTimer) demoTimer = setTimeout(demoStep, 600)
-  }
-
-  async function startLive() {
-    if (liveMode) return
-    liveMode = true
-    clearTimeout(demoTimer); demoTimer = null
-    clearTimeout(restoreTimer)
-    document.body.classList.add('recording')
-    label.textContent = 'Listening — keep holding'
-    noteTitle.textContent = 'Your note · live'
-    noteFields.forEach(f => f.classList.remove('on'))
-    noteSummary.classList.remove('on')
-    typedEl.textContent = ''
-    finalText = ''
-
-    try {
-      micStream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      const ac = new (window.AudioContext || window.webkitAudioContext)()
-      const src = ac.createMediaStreamSource(micStream)
-      analyser = ac.createAnalyser()
-      analyser.fftSize = 64
-      meterData = new Uint8Array(analyser.frequencyBinCount)
-      src.connect(analyser)
-    } catch { /* meter is optional */ }
-
-    recog = new SR()
-    recog.continuous = true
-    recog.interimResults = true
-    recog.lang = 'en-IN'
-    recog.onresult = e => {
-      let interim = ''
-      for (let i = e.resultIndex; i < e.results.length; i++) {
-        if (e.results[i].isFinal) finalText += e.results[i][0].transcript
-        else interim += e.results[i][0].transcript
-      }
-      typedEl.textContent = (finalText + interim).trim()
-    }
-    recog.onerror = ev => {
-      if (ev.error === 'not-allowed') label.textContent = 'Mic blocked — allow access and retry'
-    }
-    try { recog.start() } catch { /* already started */ }
-  }
-
-  function stopLive() {
-    if (!liveMode) return
-    liveMode = false
-    document.body.classList.remove('recording')
-    label.textContent = 'Hold to speak — try it yourself'
-    try { recog && recog.stop() } catch {}
-    micStream?.getTracks().forEach(t => t.stop())
-    analyser = null
-
-    // structure what was said — entirely in this browser
-    setTimeout(() => {
-      const text = (finalText || typedEl.textContent || '').trim()
-      if (!text) { restoreScripted(); return }
-      const sentences = text.split(/(?<=[.!?])\s+|,\s+(?=and\s)/).filter(s => s.trim())
-      const actionRe = /\b(will|need|should|must|tomorrow|today|call|send|schedule|review|follow|remind|order|book)\b/i
-      const actions = sentences.filter(s => actionRe.test(s))
-      const rest = sentences.filter(s => !actions.includes(s)).slice(1)
-      setField(0, 'You said', sentences[0] || text, true)
-      setTimeout(() => setField(1, 'Details', rest.length ? rest.join(' ') : '—', true), 250)
-      setTimeout(() => setField(2, 'Actions', actions.length ? actions.join(' ') : 'None detected', true), 500)
-      setTimeout(() => {
-        setField(3, 'Meta', `${text.split(/\s+/).length} words · structured on your device`, true)
-        noteSummary.innerHTML = '<span>Nothing left this page</span><strong>That was Aure, live ✓</strong>'
-        noteSummary.classList.add('on')
-      }, 750)
-      restoreTimer = setTimeout(restoreScripted, 9000)
-    }, 350)
-  }
-
-  btn.addEventListener('pointerdown', e => { e.preventDefault(); startLive() })
-  btn.addEventListener('pointerup', stopLive)
-  btn.addEventListener('pointercancel', stopLive)
-  btn.addEventListener('pointerleave', stopLive)
-  btn.addEventListener('contextmenu', e => e.preventDefault())
-}
-
-
 /* --------------------------- scroll choreography ----------------------------
    DOM transforms only, scrubbed — no pins, no cross-scene state. */
 
@@ -683,15 +548,14 @@ function tick(manual) {
   uniforms.uMouse.value.set(mouse.sx, 1 - mouse.sy)
 
   // motes rise; scroll pushes them like wind
-  const recBoost = document.body.classList.contains('recording') ? 0.004 : 0
   const arr = moteGeo.attributes.position.array
   for (let i = 0; i < N; i++) {
-    arr[i * 3 + 1] += (0.0006 + recBoost + Math.abs(vel) * 0.004) * spd[i]
+    arr[i * 3 + 1] += (0.0006 + Math.abs(vel) * 0.004) * spd[i]
     arr[i * 3] += Math.sin(t * 0.4 + i) * 0.00006
     if (arr[i * 3 + 1] > 1.02) { arr[i * 3 + 1] = -1.02; arr[i * 3] = Math.random() * 2 - 1 }
   }
   moteGeo.attributes.position.needsUpdate = true
-  motes.material.opacity = 0.13 + (recBoost ? 0.1 : 0) + Math.min(0.14, Math.abs(vel) * 1.1)
+  motes.material.opacity = 0.13 + Math.min(0.14, Math.abs(vel) * 1.1)
 
   // velocity skew on media — the Shopify touch (subtle, clamped)
   const skew = Math.max(-1.4, Math.min(1.4, vel * 34))
@@ -712,27 +576,6 @@ function tick(manual) {
     const s = Math.floor((performance.now() - t0) / 1000)
     clock.textContent = `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`
   })
-
-  // custom cursor: dot snaps, ring glides
-  const mx = mouse.x * innerWidth, my = mouse.y * innerHeight
-  curX += (mx - curX) * 0.16
-  curY += (my - curY) * 0.16
-  cur.style.left = curX + 'px'; cur.style.top = curY + 'px'
-  curdot.style.left = mx + 'px'; curdot.style.top = my + 'px'
-
-  // playback rail: playhead position + elapsed "recording time"
-  railHead.style.top = (target * 100) + '%'
-  const el2 = Math.round(target * RAIL_TOTAL)
-  railTime.textContent = `${String(Math.floor(el2 / 60)).padStart(2, '0')}:${String(el2 % 60).padStart(2, '0')}`
-
-  // live mic meter while holding to speak
-  if (analyser && meterData) {
-    analyser.getByteFrequencyData(meterData)
-    meterBars.forEach((bar, i) => {
-      const v = meterData[2 + i * 4] / 255
-      bar.style.height = (5 + v * 21) + 'px'
-    })
-  }
 
   renderer.render(scene, camera)
   if (!manual) requestAnimationFrame(() => tick(false))
