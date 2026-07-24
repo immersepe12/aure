@@ -409,6 +409,50 @@ h3 {
 .note-summary strong { color: var(--ink); font-weight: 500; font-size: 13.5px; }
 .demo-caption { margin-top: 5vh; color: var(--dim); font-size: 14px; font-style: italic; font-family: 'Fraunces', serif; }
 
+/* ---------------- intelligence (app layer) ---------------- */
+.intel { text-align: center; padding: 18vh 7vw; }
+.intel-head { max-width: 760px; margin: 0 auto; }
+.intel .serif em { font-style: italic; color: var(--amber); }
+.intel-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  max-width: 1240px; margin: 7vh auto 0; text-align: left;
+}
+.intel-card {
+  background: rgba(255,255,255,0.58);
+  border: 1px solid var(--line);
+  border-radius: 18px; padding: 26px 24px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.intel-card:hover { transform: translateY(-5px); box-shadow: 0 24px 50px rgba(20,18,14,0.1); }
+.ic-tag {
+  display: inline-block; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--amber); font-weight: 600; margin-bottom: 16px;
+}
+.intel-card h4 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; line-height: 1.15; margin-bottom: 10px; }
+.intel-card p { color: var(--dim); font-size: 13px; font-weight: 300; line-height: 1.62; }
+.intel-list {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 30px;
+  max-width: 1000px; margin: 6vh auto 0; text-align: left;
+}
+.intel-list div { border-top: 1px solid var(--line); padding-top: 13px; }
+.intel-list b { display: block; font-weight: 500; font-size: 14px; margin-bottom: 5px; }
+.intel-list span { color: var(--dim); font-size: 12.5px; font-weight: 300; line-height: 1.5; }
+
+/* ---------------- specifications ---------------- */
+.specs { text-align: center; padding: 16vh 7vw; }
+.specs .serif { margin-bottom: 6vh; }
+.specs-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px 26px;
+  max-width: 1240px; margin: 0 auto; text-align: left;
+}
+.spec { border-top: 1px solid var(--line); padding-top: 15px; }
+.spec em {
+  font-style: normal; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--amber); font-weight: 500; display: block; margin-bottom: 9px;
+}
+.spec strong { display: block; font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; line-height: 1.2; margin-bottom: 8px; }
+.spec span { color: var(--dim); font-size: 12.5px; font-weight: 300; line-height: 1.55; }
+
 /* ---------------- pricing ---------------- */
 .pricing { text-align: center; padding: 20vh 7vw; }
 .price-big {
@@ -884,6 +928,9 @@ a.btn.primary { color: var(--bg); }
   .hero { padding-top: 13vh; }
   .strip { padding: 9vh 0; }
   .numbers-grid { grid-template-columns: 1fr 1fr; }
+  .intel-grid { grid-template-columns: 1fr 1fr; }
+  .intel-list { grid-template-columns: 1fr 1fr; }
+  .specs-grid { grid-template-columns: 1fr 1fr; }
   .rail { display: none; }
   .teams-cards { grid-template-columns: 1fr; gap: 18px; }
   .demo-stage { grid-template-columns: 1fr; }
