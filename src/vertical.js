@@ -89,10 +89,27 @@ addEventListener('pointerdown', e => {
   setTimeout(() => b.remove(), 720)
 })
 
+// headings transcribe themselves into view
+document.querySelectorAll('.serif.reveal, h3.reveal').forEach(el => el.classList.add('transcribe'))
+
 const io = new IntersectionObserver(es => {
   es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on') })
 }, { threshold: 0.14 })
 document.querySelectorAll('.reveal').forEach(el => io.observe(el))
+
+// custom cursor
+const cur = document.getElementById('cur')
+const curdot = document.getElementById('curdot')
+let curX = innerWidth / 2, curY = innerHeight / 2
+const hoverables = 'a, button, .btn, .nav-cta, .nav-link, .role, .mini-doc'
+document.addEventListener('pointerover', e => {
+  if (e.target.closest(hoverables)) cur.classList.add('hov')
+  if (e.target.closest('.frame')) cur.classList.add('frame-hov')
+})
+document.addEventListener('pointerout', e => {
+  if (e.target.closest(hoverables)) cur.classList.remove('hov')
+  if (e.target.closest('.frame')) cur.classList.remove('frame-hov')
+})
 
 // counters
 const numIo = new IntersectionObserver(es => {
@@ -212,6 +229,12 @@ function tick(manual) {
   if (glow) glow.style.transform =
     `translate(${mouse.sx * innerWidth}px, ${mouse.sy * innerHeight}px) translate(-50%,-50%)`
   if (scrollFill) scrollFill.style.width = (target * 100).toFixed(2) + '%'
+
+  const mx = mouse.x * innerWidth, my = mouse.y * innerHeight
+  curX += (mx - curX) * 0.16
+  curY += (my - curY) * 0.16
+  cur.style.left = curX + 'px'; cur.style.top = curY + 'px'
+  curdot.style.left = mx + 'px'; curdot.style.top = my + 'px'
 
   renderer.render(scene, camera)
   if (!manual) requestAnimationFrame(() => tick(false))
