@@ -231,8 +231,8 @@ function tick(manual) {
   if (scrollFill) scrollFill.style.width = (target * 100).toFixed(2) + '%'
 
   const mx = mouse.x * innerWidth, my = mouse.y * innerHeight
-  curX += (mx - curX) * 0.16
-  curY += (my - curY) * 0.16
+  curX += (mx - curX) * 0.45
+  curY += (my - curY) * 0.45
   cur.style.left = curX + 'px'; cur.style.top = curY + 'px'
   curdot.style.left = mx + 'px'; curdot.style.top = my + 'px'
 
